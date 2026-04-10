@@ -21,7 +21,7 @@ use BitrixElementHydrator\Model\Entity\Attachment\HydratorSectionAttachment;
 use DateMalformedStringException;
 use ReflectionException;
 
-class Hydrator
+class BitrixElementHydrator
 {
     /**
      * @throws ReflectionException
