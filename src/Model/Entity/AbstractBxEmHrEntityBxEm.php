@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Model\Entity;
+namespace BxEmHydrator\Model\Entity;
 
-use BitrixElementHydrator\Contract\BxEmHydratorEntityInterface;
-use BitrixElementHydrator\Model\Entity\Attachment\BxEmBxEmHydratorFileAttachment;
-use BitrixElementHydrator\Model\Entity\Attachment\BxEmBxEmHydratorSectionAttachment;
+use BxEmHydrator\Contract\BxEmHydratorEntityInterface;
+use BxEmHydrator\Model\Entity\Attachment\BxEmBxEmHydratorFileAttachment;
+use BxEmHydrator\Model\Entity\Attachment\BxEmBxEmHydratorSectionAttachment;
 
 abstract class AbstractBxEmHrEntityBxEm implements BxEmHydratorEntityInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Model;
+namespace BxEmHydrator\Model;
 
 class BxEmHydratorConfigure
 {

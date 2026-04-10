@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Handler;
+namespace BxEmHydrator\Handler;
 
 readonly class Clr
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Model\Rule;
+namespace BxEmHydrator\Model\Rule;
 
-use BitrixElementHydrator\Contract\BxEmHydratorRuleInterface;
-use BitrixElementHydrator\Exception\BxEmHydratorDataTypeNotStringException;
+use BxEmHydrator\Contract\BxEmHydratorRuleInterface;
+use BxEmHydrator\Exception\BxEmHydratorDataTypeNotStringException;
 
 readonly class BxEmBxEmHydratorDataRelatedRule implements BxEmHydratorRuleInterface
 {

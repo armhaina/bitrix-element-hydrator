@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Handler;
+namespace BxEmHydrator\Handler;
 
-use BitrixElementHydrator\Model\BxEmHydratorConfigure;
-use BitrixElementHydrator\Model\Rule\BxEmBxEmHydratorDataRelatedRule;
+use BxEmHydrator\Model\BxEmHydratorConfigure;
+use BxEmHydrator\Model\Rule\BxEmBxEmHydratorDataRelatedRule;
 
 readonly class Rule
 {

@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator;
+namespace BxEmHydrator;
 
-use BitrixElementHydrator\Attribute\BxEmHydratorDataTypeInArray;
-use BitrixElementHydrator\Contract\BxEmHydratorEntityAttachmentInterface;
-use BitrixElementHydrator\Contract\BxEmHydratorEntityInterface;
-use BitrixElementHydrator\Contract\BxEmHydratorEntityPropertyInterface;
-use BitrixElementHydrator\Exception\BxEmHydratorAttributeNotFoundException;
-use BitrixElementHydrator\Handler\Attachment;
-use BitrixElementHydrator\Handler\Clr;
-use BitrixElementHydrator\Handler\Rfl;
-use BitrixElementHydrator\Handler\Rule;
-use BitrixElementHydrator\Handler\Str;
-use BitrixElementHydrator\Handler\Validation;
-use BitrixElementHydrator\Model\BxEmHydratorConfigure;
-use BitrixElementHydrator\Model\Entity\Attachment\BxEmBxEmHydratorFileAttachment;
-use BitrixElementHydrator\Model\Entity\Attachment\BxEmBxEmHydratorSectionAttachment;
+use BxEmHydrator\Attribute\BxEmHydratorDataTypeInArray;
+use BxEmHydrator\Contract\BxEmHydratorEntityAttachmentInterface;
+use BxEmHydrator\Contract\BxEmHydratorEntityInterface;
+use BxEmHydrator\Contract\BxEmHydratorEntityPropertyInterface;
+use BxEmHydrator\Exception\BxEmHydratorAttributeNotFoundException;
+use BxEmHydrator\Handler\Attachment;
+use BxEmHydrator\Handler\Clr;
+use BxEmHydrator\Handler\Rfl;
+use BxEmHydrator\Handler\Rule;
+use BxEmHydrator\Handler\Str;
+use BxEmHydrator\Handler\Validation;
+use BxEmHydrator\Model\BxEmHydratorConfigure;
+use BxEmHydrator\Model\Entity\Attachment\BxEmBxEmHydratorFileAttachment;
+use BxEmHydrator\Model\Entity\Attachment\BxEmBxEmHydratorSectionAttachment;
 use DateMalformedStringException;
 use ReflectionException;
 

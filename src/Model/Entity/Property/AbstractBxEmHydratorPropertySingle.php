@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Model\Entity\Property;
+namespace BxEmHydrator\Model\Entity\Property;
 
 abstract class AbstractBxEmHydratorPropertySingle extends AbstractBxEmBxEmHydratorProperty
 {

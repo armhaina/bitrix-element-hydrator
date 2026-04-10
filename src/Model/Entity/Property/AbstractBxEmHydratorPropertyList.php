@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Model\Entity\Property;
+namespace BxEmHydrator\Model\Entity\Property;
 
-use BitrixElementHydrator\Attribute\BxEmHydratorDataTypeInArray;
+use BxEmHydrator\Attribute\BxEmHydratorDataTypeInArray;
 
 abstract class AbstractBxEmHydratorPropertyList extends AbstractBxEmBxEmHydratorProperty
 {

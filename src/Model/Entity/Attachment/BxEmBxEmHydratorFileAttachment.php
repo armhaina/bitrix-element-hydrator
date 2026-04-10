@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Model\Entity\Attachment;
+namespace BxEmHydrator\Model\Entity\Attachment;
 
-use BitrixElementHydrator\Contract\BxEmHydratorEntityAttachmentInterface;
+use BxEmHydrator\Contract\BxEmHydratorEntityAttachmentInterface;
 
 class BxEmBxEmHydratorFileAttachment implements BxEmHydratorEntityAttachmentInterface
 {

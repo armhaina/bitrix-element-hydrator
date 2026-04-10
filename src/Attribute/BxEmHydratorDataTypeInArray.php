@@ -1,8 +1,8 @@
 <?php
 
-namespace BitrixElementHydrator\Attribute;
+namespace BxEmHydrator\Attribute;
 
-use BitrixElementHydrator\Exception\BxEmHydratorDataTypeUnauthorizedException;
+use BxEmHydrator\Exception\BxEmHydratorDataTypeUnauthorizedException;
 
 /**
  * Атрибут для указания типов данных, которые содержатся в массиве

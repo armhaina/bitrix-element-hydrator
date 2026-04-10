@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Handler;
+namespace BxEmHydrator\Handler;
 
-use BitrixElementHydrator\Contract\BxEmHydratorRuleInterface;
-use BitrixElementHydrator\Exception\BxEmHydratorValueNotRuleException;
+use BxEmHydrator\Contract\BxEmHydratorRuleInterface;
+use BxEmHydrator\Exception\BxEmHydratorValueNotRuleException;
 
 readonly class Validation
 {

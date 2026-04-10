@@ -1,5 +1,5 @@
 <?php
 
-namespace BitrixElementHydrator\Contract;
+namespace BxEmHydrator\Contract;
 
 interface BxEmHydratorRuleInterface {}

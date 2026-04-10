@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Exception;
+namespace BxEmHydrator\Exception;
 
 class BxEmHydratorValueNotRuleException extends \InvalidArgumentException
 {

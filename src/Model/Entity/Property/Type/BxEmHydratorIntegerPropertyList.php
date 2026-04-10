@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitrixElementHydrator\Model\Entity\Property\Type;
+namespace BxEmHydrator\Model\Entity\Property\Type;
 
-use BitrixElementHydrator\Attribute\BxEmHydratorDataTypeInArray;
-use BitrixElementHydrator\Model\Entity\Property\AbstractBxEmHydratorPropertyList;
+use BxEmHydrator\Attribute\BxEmHydratorDataTypeInArray;
+use BxEmHydrator\Model\Entity\Property\AbstractBxEmHydratorPropertyList;
 
 class BxEmHydratorIntegerPropertyList extends AbstractBxEmHydratorPropertyList
 {
