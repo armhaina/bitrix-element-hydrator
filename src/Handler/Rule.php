@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace BxEmHydrator\Handler;
 
 use BxEmHydrator\Model\BxEmHydratorConfigure;
-use BxEmHydrator\Model\Rule\BxEmBxEmHydratorDataRelatedRule;
+use BxEmHydrator\Model\Rule\BxEmHydratorDataRelatedRule;
 
 readonly class Rule
 {
@@ -15,7 +15,7 @@ readonly class Rule
     public static function dataRelated(BxEmHydratorConfigure $configure): bool
     {
         foreach ($configure->getRules() as $rule) {
-            if (!($rule instanceof BxEmBxEmHydratorDataRelatedRule)) {
+            if (!($rule instanceof BxEmHydratorDataRelatedRule)) {
                 continue;
             }
 

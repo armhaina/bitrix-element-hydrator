@@ -7,7 +7,7 @@ namespace BxEmHydrator\Model\Rule;
 use BxEmHydrator\Contract\BxEmHydratorRuleInterface;
 use BxEmHydrator\Exception\BxEmHydratorDataTypeNotStringException;
 
-readonly class BxEmBxEmHydratorDataRelatedRule implements BxEmHydratorRuleInterface
+readonly class BxEmHydratorDataRelatedRule implements BxEmHydratorRuleInterface
 {
     public function __construct(private array $fields)
     {

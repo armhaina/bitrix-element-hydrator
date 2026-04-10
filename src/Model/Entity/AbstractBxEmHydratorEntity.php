@@ -8,7 +8,7 @@ use BxEmHydrator\Contract\BxEmHydratorEntityInterface;
 use BxEmHydrator\Model\Entity\Attachment\BxEmBxEmHydratorFileAttachment;
 use BxEmHydrator\Model\Entity\Attachment\BxEmBxEmHydratorSectionAttachment;
 
-abstract class AbstractBxEmHrEntityBxEm implements BxEmHydratorEntityInterface
+abstract class AbstractBxEmHydratorEntity implements BxEmHydratorEntityInterface
 {
     protected int $id;
     protected ?string $name = null;

@@ -6,7 +6,7 @@ namespace BxEmHydrator\Model\Entity\Property;
 
 use BxEmHydrator\Contract\BxEmHydratorEntityPropertyInterface;
 
-abstract class AbstractBxEmBxEmHydratorProperty implements BxEmHydratorEntityPropertyInterface
+abstract class AbstractBxEmHydratorProperty implements BxEmHydratorEntityPropertyInterface
 {
     protected int $id;
     protected string $timestampX;

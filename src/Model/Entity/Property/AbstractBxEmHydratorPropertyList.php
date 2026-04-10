@@ -6,7 +6,7 @@ namespace BxEmHydrator\Model\Entity\Property;
 
 use BxEmHydrator\Attribute\BxEmHydratorDataTypeInArray;
 
-abstract class AbstractBxEmHydratorPropertyList extends AbstractBxEmBxEmHydratorProperty
+abstract class AbstractBxEmHydratorPropertyList extends AbstractBxEmHydratorProperty
 {
     #[BxEmHydratorDataTypeInArray(typeOrClassName: 'integer')]
     protected array $propertyValueId;
