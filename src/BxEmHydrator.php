@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 namespace BxEmHydrator;
-;
+
 use BxEmHydrator\Element\BxEmHydratorElement;
 use DateMalformedStringException;
 use ReflectionException;
