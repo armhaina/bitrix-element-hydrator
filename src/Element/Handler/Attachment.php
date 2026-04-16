@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace BxEmHydrator\Element\Handler;
 
-use function BxEmHydrator\Handler\GetFileExtension;
-
 readonly class Attachment
 {
     public static function file(int $id): array

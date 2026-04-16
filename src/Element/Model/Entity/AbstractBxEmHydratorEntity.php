@@ -10,6 +10,7 @@ abstract class AbstractBxEmHydratorEntity implements BxEmHydratorEntityInterface
 {
     protected int $id;
     protected ?string $name = null;
+    protected ?string $code = null;
     protected ?int $sort = null;
     protected ?string $timestampX = null;
     protected ?int $timestampXUnix = null;
@@ -63,6 +64,18 @@ abstract class AbstractBxEmHydratorEntity implements BxEmHydratorEntityInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }
