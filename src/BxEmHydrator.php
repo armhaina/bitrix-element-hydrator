@@ -18,4 +18,9 @@ class BxEmHydrator
     {
         return BxEmHydratorElement::exec(item: $item, className: $className, rules: $rules);
     }
+
+    public static function section(\_CIBElement $item, string $className, array $rules = []): object
+    {
+        return BxEmHydratorElement::exec(item: $item, className: $className, rules: $rules, isSection: true);
+    }
 }

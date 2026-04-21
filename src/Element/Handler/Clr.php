@@ -18,7 +18,7 @@ readonly class Clr
                     return false;
                 }
 
-                if ($value === null || $value === '') {
+                if ($value === null || $value === '' || $value === false) {
                     return false;
                 }
 

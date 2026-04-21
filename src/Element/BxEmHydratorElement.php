@@ -26,8 +26,12 @@ class BxEmHydratorElement
      * @throws ReflectionException
      * @throws DateMalformedStringException
      */
-    public static function exec(\_CIBElement $item, string $className, array $rules = []): object
-    {
+    public static function exec(
+        \_CIBElement $item,
+        string $className,
+        array $rules = [],
+        bool $isSection = false
+    ): object {
         Validation::rules(rules: $rules);
 
         $model = new $className;
@@ -35,8 +39,24 @@ class BxEmHydratorElement
         $fields = $item->getFields();
         $fields = Clr::fields(fields: $fields);
 
-        $properties = $item->GetProperties();
-        $properties = Clr::properties(properties: $properties, fields: $fields);
+        if ($isSection) {
+            $properties = [];
+
+            $queryProperties = \CUserTypeEntity::GetList(
+                aFilter: ['ENTITY_ID' => 'IBLOCK_' . $fields['IBLOCK_ID'] . '_SECTION']
+            );
+
+            while ($property = $queryProperties->Fetch()) {
+                if (!empty($fields[$property['FIELD_NAME']])) {
+                    $value = $fields[$property['FIELD_NAME']];
+                    $fields[$property['FIELD_NAME']] = $property;
+                    $fields[$property['FIELD_NAME']]['VALUE'] = $value;
+                }
+            }
+        } else {
+            $properties = $item->GetProperties();
+            $properties = Clr::properties(properties: $properties, fields: $fields);
+        }
 
         self::handler(
             fields: array_merge($fields, $properties),
@@ -80,8 +100,8 @@ class BxEmHydratorElement
                 $configure->setClassNameRoot(classNameRoot: $classNameRoot);
             }
 
-            // Если поля является свойством (PROPERTY_) битрикса, то берем только value
-            if (!empty($configure->getValue()['PROPERTY_VALUE_ID'])) {
+            // Если поля является свойством элемента/раздела Битрикса, то берем только value
+            if (!empty($configure->getValue()['PROPERTY_VALUE_ID']) || !empty($configure->getValue()['SETTINGS'])) {
                 $configure->setValue(value: $configure->getValue()['VALUE']);
             }
 
