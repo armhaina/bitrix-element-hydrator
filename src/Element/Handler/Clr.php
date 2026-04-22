@@ -41,6 +41,9 @@ readonly class Clr
                 continue;
             }
 
+            // Перезаписываем VALUE на ~VALUE (~VALUE исходное значение из БД, без преобразований Битрикса)
+            $property['VALUE'] = $property['~VALUE'];
+
             $list[$field] = self::fields(fields: $property);
         }
 
