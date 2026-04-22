@@ -208,7 +208,14 @@ class BxEmHydratorElement
             $fields = ['ID' => $configure->getValue()];
 
             if (Rule::dataRelated(configure: $configure)) {
-                $fields = Attachment::section(id: (int)$configure->getValue());
+                $item = Attachment::section(id: (int)$configure->getValue());
+
+                return self::exec(
+                    item: $item,
+                    className: $configure->getClassName(),
+                    rules: $configure->getRules(),
+                    isSection: true
+                );
             }
 
             self::handler(

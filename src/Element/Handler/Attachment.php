@@ -15,10 +15,13 @@ readonly class Attachment
         return $fields;
     }
 
-    public static function section(int $id): array
+    public static function section(int $id): \_CIBElement
     {
-        $fields = \CIBlockSection::GetByID(ID: $id)->GetNext();
+        $section = \CIBlockSection::GetByID(ID: $id)->Fetch();
 
-        return Clr::fields(fields: $fields);
+        return \CIBlockSection::GetList(
+            arFilter: ['ID' => $id, 'IBLOCK_ID' => $section['IBLOCK_ID']],
+            arSelect: ['*', 'UF_*']
+        )->GetNextElement();
     }
 }
