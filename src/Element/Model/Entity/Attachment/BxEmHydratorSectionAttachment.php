@@ -9,6 +9,7 @@ use BxEmHydrator\Element\Contract\BxEmHydratorEntityAttachmentInterface;
 class BxEmHydratorSectionAttachment implements BxEmHydratorEntityAttachmentInterface
 {
     protected int $id;
+    protected ?string $code = null;
     protected ?string $timestampX = null;
     protected ?string $dateCreate = null;
     protected ?int $iblockId = null;
@@ -34,6 +35,18 @@ class BxEmHydratorSectionAttachment implements BxEmHydratorEntityAttachmentInter
     public function setId(int $id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }
