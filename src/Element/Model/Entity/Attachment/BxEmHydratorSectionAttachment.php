@@ -257,7 +257,7 @@ class BxEmHydratorSectionAttachment implements BxEmHydratorEntityAttachmentInter
         return $this->elementCnt;
     }
 
-    public function setElementCnt(string $elementCnt): self
+    public function setElementCnt(int $elementCnt): self
     {
         $this->elementCnt = $elementCnt;
 
