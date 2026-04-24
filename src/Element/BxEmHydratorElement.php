@@ -264,12 +264,6 @@ class BxEmHydratorElement
                             rules: $configure->getRules()
                         );
                     }
-                } else {
-                    foreach ($configure->getValue() as $value) {
-                        $item = ['ID' => $value];
-                        $class = $configure->getDataTypeInArray();
-                        $values[] = self::handler(fields: $item, model: new $class, rules: $configure->getRules());
-                    }
                 }
             }
         }
