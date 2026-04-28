@@ -62,7 +62,8 @@ class BxEmHydratorElement
             fields: array_merge($fields, $properties),
             model: $model,
             rules: $rules,
-            classNameRoot: $model::class
+            classNameRoot: $model::class,
+            isSection: $isSection
         );
 
         return $model;
@@ -77,7 +78,8 @@ class BxEmHydratorElement
         object $model,
         array $rules = [],
         ?string $fieldRoot = null,
-        ?string $classNameRoot = null
+        ?string $classNameRoot = null,
+        bool $isSection = false
     ): object {
         foreach ($fields as $field => $value) {
             $method = 'set' . Str::snakeToPascalCase(string: $field);
@@ -90,6 +92,8 @@ class BxEmHydratorElement
                 ->setValue(value: $value)
                 ->setField(field: $field)
                 ->setRules(rules: $rules)
+                ->setIsSection(isSection: $isSection)
+                ->setFields(fields: $fields)
                 ->setDataType(dataType: Rfl::type(model: $model, method: $method));
 
             if ($fieldRoot) {
@@ -189,7 +193,7 @@ class BxEmHydratorElement
      * @throws DateMalformedStringException
      * @throws ReflectionException
      */
-    private static function attachment(BxEmHydratorConfigure $configure): ?object
+    private static function attachment(BxEmHydratorConfigure $configure): array|object|null
     {
         $className = $configure->getClassName();
         $class = new $className;
@@ -204,14 +208,30 @@ class BxEmHydratorElement
 
         if ($class instanceof BxEmHydratorSectionAttachment) {
             if (Rule::dataRelated(configure: $configure)) {
-                $item = Attachment::section(id: (int)$configure->getValue());
+                if (!$configure->getIsSection()) {
+                    $sections = null;
+                    $sectionQuery = \CIBlockElement::GetElementGroups(ID: $configure->getFields()['ID']);
 
-                return self::exec(
-                    item: $item,
-                    className: $configure->getClassName(),
-                    rules: $configure->getRules(),
-                    isSection: true
-                );
+                    while ($section = $sectionQuery->GetNextElement()) {
+                        $sections[] = self::exec(
+                            item: $section,
+                            className: $configure->getClassName(),
+                            rules: $configure->getRules(),
+                            isSection: true
+                        );
+                    }
+
+                    return $sections;
+                } else {
+                    $item = Attachment::section(id: (int)$configure->getValue());
+
+                    return self::exec(
+                        item: $item,
+                        className: $configure->getClassName(),
+                        rules: $configure->getRules(),
+                        isSection: true
+                    );
+                }
             }
         }
 
@@ -256,14 +276,33 @@ class BxEmHydratorElement
                     $values[] = $configure->getDataTypeInArray()::from($value);
                 }
             } else {
-                if (Rule::dataRelated(configure: $configure)) {
-                    foreach ($configure->getValue() as $value) {
-                        $item = \CIBlockElement::GetByID(ID: $value)->GetNextElement();
-                        $values[] = self::exec(
-                            item: $item,
-                            className: $configure->getDataTypeInArray(),
-                            rules: $configure->getRules()
-                        );
+                $classForArray = $configure->getDataTypeInArray();
+
+                if (new $classForArray instanceof BxEmHydratorSectionAttachment) {
+                    if (Rule::dataRelated(configure: $configure)) {
+                        if (!$configure->getIsSection()) {
+                            $sectionQuery = \CIBlockElement::GetElementGroups(ID: $configure->getFields()['ID']);
+
+                            while ($section = $sectionQuery->GetNextElement()) {
+                                $values[] = self::exec(
+                                    item: $section,
+                                    className: $configure->getDataTypeInArray(),
+                                    rules: $configure->getRules(),
+                                    isSection: true
+                                );
+                            }
+                        } else {
+                            if (Rule::dataRelated(configure: $configure)) {
+                                foreach ($configure->getValue() as $value) {
+                                    $item = \CIBlockElement::GetByID(ID: $value)->GetNextElement();
+                                    $values[] = self::exec(
+                                        item: $item,
+                                        className: $configure->getDataTypeInArray(),
+                                        rules: $configure->getRules()
+                                    );
+                                }
+                            }
+                        }
                     }
                 }
             }

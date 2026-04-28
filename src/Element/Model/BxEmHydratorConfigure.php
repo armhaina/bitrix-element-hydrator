@@ -10,6 +10,8 @@ class BxEmHydratorConfigure
     private string|array $value;
     private string $dataType;
     private array $rules;
+    private bool $isSection;
+    private array $fields;
     private ?string $fieldRoot;
     private ?string $className = null;
     private ?string $classNameRoot = null;
@@ -59,6 +61,30 @@ class BxEmHydratorConfigure
     public function setRules(array $rules): self
     {
         $this->rules = $rules;
+
+        return $this;
+    }
+
+    public function getIsSection(): bool
+    {
+        return $this->isSection;
+    }
+
+    public function setIsSection(bool $isSection): self
+    {
+        $this->isSection = $isSection;
+
+        return $this;
+    }
+
+    public function getFields(): array
+    {
+        return $this->fields;
+    }
+
+    public function setFields(array $fields): self
+    {
+        $this->fields = $fields;
 
         return $this;
     }
