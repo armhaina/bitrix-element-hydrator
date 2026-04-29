@@ -18,6 +18,8 @@ abstract class AbstractBxEmHydratorEntity implements BxEmHydratorEntityInterface
     protected ?int $dateCreateUnix = null;
     protected ?int $iblockId = null;
     protected ?bool $active = null;
+    protected ?string $activeFrom = null;
+    protected ?string $dateActiveFrom = null;
     protected ?string $previewText = null;
     protected ?string $previewTextType = null;
     protected ?string $detailText = null;
@@ -168,6 +170,30 @@ abstract class AbstractBxEmHydratorEntity implements BxEmHydratorEntityInterface
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getActiveFrom(): ?string
+    {
+        return $this->activeFrom;
+    }
+
+    public function setActiveFrom(string $activeFrom): self
+    {
+        $this->activeFrom = $activeFrom;
+
+        return $this;
+    }
+
+    public function getDateActiveFrom(): ?string
+    {
+        return $this->dateActiveFrom;
+    }
+
+    public function setDateActiveFrom(string $dateActiveFrom): self
+    {
+        $this->dateActiveFrom = $dateActiveFrom;
 
         return $this;
     }
