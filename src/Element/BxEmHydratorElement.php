@@ -335,6 +335,19 @@ class BxEmHydratorElement
                                 rules: $configure->getRules()
                             );
                         }
+                    } else {
+                        $query = \CIBlockElement::GetList(
+                            arFilter: ['ID' => $configure->getValue(), 'ACTIVE' => 'Y'],
+                            arSelectFields: ['*'],
+                        );
+
+                        while ($item = $query->GetNextElement()) {
+                            $values[] = self::exec(
+                                item: $item,
+                                className: $configure->getDataTypeInArray(),
+                                rules: $configure->getRules()
+                            );
+                        }
                     }
                 }
             }
