@@ -53,6 +53,8 @@ class BxEmHydratorElement
                     $fields[$property['FIELD_NAME']]['VALUE'] = $value;
                 }
             }
+
+            $fields['ITEMS'] = [];
         } else {
             $properties = $item->GetProperties();
             $properties = Clr::properties(properties: $properties, fields: $fields);
@@ -281,7 +283,11 @@ class BxEmHydratorElement
                 if (Rule::dataRelated(configure: $configure)) {
                     foreach ($configure->getValue() as $value) {
                         $fields = Attachment::file(id: (int)$value);
-                        $values[] = self::handler(fields: $fields, model: new $dataTypeInArray, rules: $configure->getRules());
+                        $values[] = self::handler(
+                            fields: $fields,
+                            model: new $dataTypeInArray,
+                            rules: $configure->getRules()
+                        );
                     }
                 }
             }
@@ -309,6 +315,25 @@ class BxEmHydratorElement
                                     rules: $configure->getRules()
                                 );
                             }
+                        }
+                    }
+                }
+            }
+
+            if (new $dataTypeInArray instanceof BxEmHydratorEntityInterface) {
+                if (Rule::dataRelated(configure: $configure)) {
+                    if ($configure->getIsSection()) {
+                        $query = \CIBlockElement::GetList(
+                            arFilter: ['SECTION_ID' => $configure->getFields()['ID'], 'ACTIVE' => 'Y'],
+                            arSelectFields: ['*'],
+                        );
+
+                        while ($item = $query->GetNextElement()) {
+                            $values[] = self::exec(
+                                item: $item,
+                                className: $configure->getDataTypeInArray(),
+                                rules: $configure->getRules()
+                            );
                         }
                     }
                 }
